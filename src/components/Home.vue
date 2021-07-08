@@ -14,21 +14,25 @@
     -->
     <div>
       <div>
+        <label>starts with...</label>
         <input
           v-on:change="findWords()"
           v-model="starts"
           placeholder="starts with..."
           class="field"
         />
+        <label>ends with...</label>
         <input v-model="ends" placeholder="ends with..." class="field" />
       </div>
       <div>
+        <label>contains...</label>
         <input
           v-on:change="findWords()"
           v-model="contains"
           placeholder="contains..."
           class="field"
         />
+        <label>it's length...</label>
         <input
           v-on:change="findWords()"
           type="number"
@@ -43,12 +47,29 @@
     <div v-if="words !== {}">
       <ul>
         <li class="word" v-for="(w, key) in words" v-bind:key="key">
-          {{ w.word }}
+          <a
+            target="_blank"
+            :href="'https://www.dictionary.com/browse/' + w.word"
+          >
+            {{ w.word }}
+          </a>
         </li>
       </ul>
     </div>
-    <p style="color: black; margin: 2rem" v-if="!words.length">No words were found.</p>
+    <p style="color: black; margin: 2rem" v-if="!words.length">
+      No words were found.
+    </p>
     <div class="some-space"></div>
+
+    <footer>
+      <div>
+        <div class="f-block">developer: Gonzalo Del Gaudio</div>
+        <br />
+        <div class="f-block">
+          <a style="color: white" href="http://gonsoft.com.ar">www.gonsoft.com.ar</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -66,10 +87,10 @@ export default {
   },
   data() {
     return {
-      starts: "s",
-      ends: "d",
-      contains: "r",
-      length: 8,
+      starts: "",
+      ends: "",
+      contains: "",
+      length: 0,
       words: {},
     };
   },
@@ -173,6 +194,15 @@ h1 {
   background-color: #42b983;
 }
 
+footer {
+  padding: 6rem;
+  background-color: #222;
+}
+
+.f-block {
+  margin: 0rem;
+}
+
 h3 {
   margin: 40px 0 0;
 }
@@ -185,6 +215,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: black;
+  text-decoration: none;
 }
 </style>
