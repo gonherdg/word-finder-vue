@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Header></Header>
     <h1>{{ msg }}</h1>
     <strong class="instruccions"
       >Find words entering some of it's letters:</strong
@@ -37,7 +36,7 @@
       <button v-on:click="findWords()" class="search-btn">SEARCH</button>
     </div>
 
-    <div class="words-container" v-if="words !== {}">
+    <div class="words-container" v-if="words !== {} && !justLoaded">
       <ul>
         <li class="word" v-for="(w, key) in words" v-bind:key="key">
           <a
@@ -50,7 +49,7 @@
         </li>
       </ul>
     </div>
-    <p style="color: #222; margin: 2rem" v-if="!words.length">
+    <p style="color: #222; margin: 2rem" v-if="!words.length && !justLoaded">
       No words were found.
     </p>
     <div class="some-space"></div>
@@ -68,7 +67,7 @@
 </template>
 
 <script>
-import Header from "./Header.vue";
+
 import axios from "axios";
 
 export default {
@@ -76,9 +75,7 @@ export default {
   props: {
     msg: String,
   },
-  components: {
-    Header,
-  },
+  components: {},
   data() {
     return {
       starts: "",
@@ -86,6 +83,7 @@ export default {
       contains: "",
       length: 0,
       words: {},
+      justLoaded: true,
     };
   },
   computed: () => ({
@@ -98,6 +96,7 @@ export default {
 
   methods: {
     findWords() {
+      this.justLoaded = false;
       console.log(this.starts, this.contains, this.ends, this.length);
       const searchWord = this.starts + "*" + this.contains + "*" + this.ends;
       axios
@@ -126,6 +125,8 @@ export default {
 
 h1 {
   font-size: 3rem;
+  margin-top: 0px;
+  padding: 1.5rem;
 }
 
 .instruccions {

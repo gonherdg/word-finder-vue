@@ -1,18 +1,16 @@
 <template>
   <div class="header">
-    <div class="logo">
+    <div class="left-side">
       <img
         class="logo-img"
         alt="Fast Word Finder"
         src="../assets/logo_black.png"
       />
     </div>
-    <!--
-    <div class="right-header">
-      <div class="option">Word Lists</div>
-      <div class="option">Word Finders</div>
+
+    <div class="right-side">
+      <button class="option">About</button>
     </div>
-    -->
   </div>
 </template>
 
@@ -29,11 +27,37 @@ export default {
 <style scoped>
 .header {
   background-color: #42b983;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.logo {
+.left-side {
   width: 16rem;
+  position: left;
   margin-left: 10%;
+  text-align: left;
+}
+
+.right-side {
+  text-align: right;
+  position: right;
+  margin-right: 10%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.option {
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-radius: 5px;
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: medium;
+  font-weight: 600;
 }
 
 .logo-img {
