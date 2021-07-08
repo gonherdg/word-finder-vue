@@ -1,6 +1,12 @@
 <template>
   <div class="header">
-    <div class="logo">Worduntu</div>
+    <div class="logo">
+      <img
+        class="logo-img"
+        alt="Fast Word Finder"
+        src="../assets/logo_black.png"
+      />
+    </div>
     <!--
     <div class="right-header">
       <div class="option">Word Lists</div>
@@ -12,7 +18,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "Header",
   props: {
     msg: String,
   },
@@ -23,17 +29,20 @@ export default {
 <style scoped>
 .header {
   background-color: #42b983;
-  height: 3rem;
 }
 
 .logo {
-  margin-top: auto;
-  margin-bottom: auto;
+  width: 16rem;
+  margin-left: 10%;
 }
 
-h3 {
-  margin: 40px 0 0;
+.logo-img {
+  object-fit: cover;
+  object-position: center;
+  width: 16rem;
+  height: 6rem;
 }
+
 ul {
   list-style-type: none;
   padding: 0;

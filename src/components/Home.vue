@@ -1,17 +1,10 @@
 <template>
   <div class="home">
-    <Header />
+    <Header></Header>
     <h1>{{ msg }}</h1>
     <strong class="instruccions"
       >Find words entering some of it's letters:</strong
     >
-    <!--
-    <input
-      v-model="letters"
-      placeholder="YOUR LETTERS"
-      class="finder-input block"
-    />
-    -->
     <div>
       <div>
         <label>starts with...</label>
@@ -44,11 +37,12 @@
       <button v-on:click="findWords()" class="search-btn">SEARCH</button>
     </div>
 
-    <div v-if="words !== {}">
+    <div class="words-container" v-if="words !== {}">
       <ul>
         <li class="word" v-for="(w, key) in words" v-bind:key="key">
           <a
             target="_blank"
+            style="color: white"
             :href="'https://www.dictionary.com/browse/' + w.word"
           >
             {{ w.word }}
@@ -56,7 +50,7 @@
         </li>
       </ul>
     </div>
-    <p style="color: black; margin: 2rem" v-if="!words.length">
+    <p style="color: #222; margin: 2rem" v-if="!words.length">
       No words were found.
     </p>
     <div class="some-space"></div>
@@ -131,12 +125,12 @@ export default {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .instruccions {
   font-size: 1.2rem;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .finder-input {
@@ -181,16 +175,21 @@ h1 {
   margin-right: auto;
 }
 
+.words-container {
+  margin: 1.5rem;
+  padding: 1.5rem;
+}
+
 .word {
   padding: 0.4rem;
-  background-color: greenyellow;
+  background-color: #222;
   border-radius: 10px;
-  color: black;
+  color: white;
   margin: 0.2rem;
 }
 
 .some-space {
-  height: 20rem;
+  height: 2rem;
   background-color: #42b983;
 }
 
