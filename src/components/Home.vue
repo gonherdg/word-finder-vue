@@ -14,20 +14,47 @@
     -->
     <div>
       <div>
-        <input v-model="starts" placeholder="starts with..." class="field" />
+        <input
+          v-on:change="findWords()"
+          v-model="starts"
+          placeholder="starts with..."
+          class="field"
+        />
         <input v-model="ends" placeholder="ends with..." class="field" />
       </div>
       <div>
-        <input v-model="contains" placeholder="contains..." class="field" />
-        <input v-model="length" placeholder="lenght..." class="field" />
+        <input
+          v-on:change="findWords()"
+          v-model="contains"
+          placeholder="contains..."
+          class="field"
+        />
+        <input
+          v-on:change="findWords()"
+          type="number"
+          v-model.number="length"
+          placeholder="lenght..."
+          class="field"
+        />
       </div>
-      <button class="search-btn">SEARCH</button>
+      <button v-on:click="findWords()" class="search-btn">SEARCH</button>
     </div>
+
+    <div v-if="words !== {}">
+      <ul>
+        <li class="word" v-for="(w, key) in words" v-bind:key="key">
+          {{ w.word }}
+        </li>
+      </ul>
+    </div>
+    <p style="color: black; margin: 2rem" v-if="!words.length">No words were found.</p>
+    <div class="some-space"></div>
   </div>
 </template>
 
 <script>
 import Header from "./Header.vue";
+import axios from "axios";
 
 export default {
   name: "Home",
@@ -37,21 +64,41 @@ export default {
   components: {
     Header,
   },
-  data: () => ({
-    letters: "",
-  }),
+  data() {
+    return {
+      starts: "s",
+      ends: "d",
+      contains: "r",
+      length: 8,
+      words: {},
+    };
+  },
   computed: () => ({
-    "uppercase-letters": () => {
+    "uppercase-letters": function () {
       this.letters.toUppercase();
     },
   }),
 
-  mounted: function () {
-    // this.letters = "Rellenando on mounted...";
-    // console.log("letters value: ", this.letters);
-  },
+  mounted: function () {},
 
-  methods: {},
+  methods: {
+    findWords() {
+      console.log(this.starts, this.contains, this.ends, this.length);
+      const searchWord = this.starts + "*" + this.contains + "*" + this.ends;
+      axios
+        .get(`https://api.datamuse.com/words?sp=${searchWord}`)
+        .then((response) => (this.words = response.data))
+        .then(() => {
+          if (this.length)
+            return (this.words = this.words.filter(
+              (item) => item.word.length === this.length
+            ));
+          else {
+            return this.words;
+          }
+        });
+    },
+  },
 };
 </script>
 
@@ -113,6 +160,18 @@ h1 {
   margin-right: auto;
 }
 
+.word {
+  padding: 0.4rem;
+  background-color: greenyellow;
+  border-radius: 10px;
+  color: black;
+  margin: 0.2rem;
+}
+
+.some-space {
+  height: 20rem;
+  background-color: #42b983;
+}
 
 h3 {
   margin: 40px 0 0;
