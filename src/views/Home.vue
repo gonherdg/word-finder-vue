@@ -54,29 +54,22 @@
     </p>
     <div class="some-space"></div>
 
-    <footer>
-      <div>
-        <div class="f-block">developer: Gonzalo Del Gaudio</div>
-        <br />
-        <div class="f-block">
-          <a style="color: white" href="http://gonsoft.com.ar"
-            >www.gonsoft.com.ar</a
-          >
-        </div>
-      </div>
-    </footer>
+    <CommonFooter />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import CommonFooter from "../components/CommonFooter.vue"
 
 export default {
   name: "Home",
   props: {
     msg: String,
   },
-  components: {},
+  components: {
+    CommonFooter,
+  },
   data() {
     return {
       starts: "",
@@ -193,15 +186,6 @@ h1 {
 .some-space {
   height: 2rem;
   background-color: #42b983;
-}
-
-footer {
-  padding: 6rem;
-  background-color: #222;
-}
-
-.f-block {
-  margin: 0rem;
 }
 
 h3 {

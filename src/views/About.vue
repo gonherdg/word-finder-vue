@@ -55,16 +55,21 @@
         </div>
       </div>
     </div>
+    <CommonFooter />
   </div>
 </template>
 
 <script>
+import CommonFooter from '../components/CommonFooter.vue'
+
 export default {
   name: "About",
   props: {
     msg: String,
   },
-  components: {},
+  components: {
+    CommonFooter,
+  },
 };
 </script>
 
