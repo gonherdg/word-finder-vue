@@ -3,14 +3,15 @@
     <Header />
     <h1>{{ msg }}</h1>
     <strong class="instruccions"
-      >Find words entering some of the containing letters:</strong
+      >Find words entering some of it's letters:</strong
     >
+    <!--
     <input
       v-model="letters"
       placeholder="YOUR LETTERS"
       class="finder-input block"
     />
-
+    -->
     <div>
       <div>
         <input v-model="starts" placeholder="starts with..." class="field" />
@@ -46,8 +47,8 @@ export default {
   }),
 
   mounted: function () {
-    this.letters = "Rellenando on mounted...";
-    console.log("letters value: ", this.letters);
+    // this.letters = "Rellenando on mounted...";
+    // console.log("letters value: ", this.letters);
   },
 
   methods: {},
