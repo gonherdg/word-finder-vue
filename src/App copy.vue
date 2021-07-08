@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <Header></Header>
-    </div>
-    <router-view />
+    <Home v-if="currentPage === 'Home'" msg="Fast Word Finder" />
+    <About v-if="currentPage === 'About'" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Home from "./pages/Home.vue";
+import About from "./pages/About.vue";
 
 export default {
+  name: "App",
   components: {
-    Header,
+    Home,
+    About,
+  },
+  data() {
+    return {
+      currentPage: "About",
+    };
   },
 };
 </script>
@@ -25,21 +31,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin: 0px;
-  padding: 0px;
 }
 
-body,
-html {
-  padding: 0px;
+body {
   margin: 0px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

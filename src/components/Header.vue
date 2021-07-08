@@ -9,7 +9,8 @@
     </div>
 
     <div class="right-side">
-      <button class="option">About</button>
+      <router-link class="option" to="/">Home</router-link> |
+      <router-link class="option" to="/about">About</router-link>
     </div>
   </div>
 </template>
@@ -19,6 +20,9 @@ export default {
   name: "Header",
   props: {
     msg: String,
+  },
+
+  methods: {
   },
 };
 </script>

@@ -59,7 +59,9 @@
         <div class="f-block">developer: Gonzalo Del Gaudio</div>
         <br />
         <div class="f-block">
-          <a style="color: white" href="http://gonsoft.com.ar">www.gonsoft.com.ar</a>
+          <a style="color: white" href="http://gonsoft.com.ar"
+            >www.gonsoft.com.ar</a
+          >
         </div>
       </div>
     </footer>
@@ -67,7 +69,6 @@
 </template>
 
 <script>
-
 import axios from "axios";
 
 export default {
