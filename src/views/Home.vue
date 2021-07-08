@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <h1>Fast Word Finder</h1>
     <strong class="instruccions"
       >Find words entering some of it's letters:</strong
     >

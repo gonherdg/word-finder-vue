@@ -22,8 +22,7 @@ export default {
     msg: String,
   },
 
-  methods: {
-  },
+  methods: {},
 };
 </script>
 
