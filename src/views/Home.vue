@@ -1,58 +1,60 @@
 <template>
   <div class="home">
-    <h1>Fast Word Finder</h1>
-    <strong class="instruccions"
-      >Find words entering some of it's letters:</strong
-    >
-    <div>
+      <div class="content">
+      <h1>Fast Word Finder</h1>
+      <strong class="instruccions"
+        >Find words entering some of it's letters:</strong
+      >
       <div>
-        <label>starts with...</label>
-        <input
-          v-on:change="findWords()"
-          v-model="starts"
-          placeholder="starts with..."
-          class="field"
-        />
-        <label>ends with...</label>
-        <input v-model="ends" placeholder="ends with..." class="field" />
+        <div>
+          <label>starts with...</label>
+          <input
+            v-on:change="findWords()"
+            v-model="starts"
+            placeholder="starts with..."
+            class="field"
+          />
+          <label>ends with...</label>
+          <input v-model="ends" placeholder="ends with..." class="field" />
+        </div>
+        <div>
+          <label>contains...</label>
+          <input
+            v-on:change="findWords()"
+            v-model="contains"
+            placeholder="contains..."
+            class="field"
+          />
+          <label>it's length...</label>
+          <input
+            v-on:change="findWords()"
+            type="number"
+            v-model.number="length"
+            placeholder="lenght..."
+            class="field"
+          />
+        </div>
+        <button v-on:click="findWords()" class="search-btn">SEARCH</button>
       </div>
-      <div>
-        <label>contains...</label>
-        <input
-          v-on:change="findWords()"
-          v-model="contains"
-          placeholder="contains..."
-          class="field"
-        />
-        <label>it's length...</label>
-        <input
-          v-on:change="findWords()"
-          type="number"
-          v-model.number="length"
-          placeholder="lenght..."
-          class="field"
-        />
-      </div>
-      <button v-on:click="findWords()" class="search-btn">SEARCH</button>
-    </div>
 
-    <div class="words-container" v-if="words !== {} && !justLoaded">
-      <ul>
-        <li class="word" v-for="(w, key) in words" v-bind:key="key">
-          <a
-            target="_blank"
-            style="color: white"
-            :href="'https://www.dictionary.com/browse/' + w.word"
-          >
-            {{ w.word }}
-          </a>
-        </li>
-      </ul>
+      <div class="words-container" v-if="words !== {} && !justLoaded">
+        <ul>
+          <li class="word" v-for="(w, key) in words" v-bind:key="key">
+            <a
+              target="_blank"
+              style="color: white"
+              :href="'https://www.dictionary.com/browse/' + w.word"
+            >
+              {{ w.word }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <p style="color: #222; margin: 2rem" v-if="!words.length && !justLoaded">
+        No words were found.
+      </p>
+      <div class="some-space"></div>
     </div>
-    <p style="color: #222; margin: 2rem" v-if="!words.length && !justLoaded">
-      No words were found.
-    </p>
-    <div class="some-space"></div>
 
     <CommonFooter />
   </div>
@@ -60,7 +62,7 @@
 
 <script>
 import axios from "axios";
-import CommonFooter from "../components/CommonFooter.vue"
+import CommonFooter from "../components/CommonFooter.vue";
 
 export default {
   name: "Home",
@@ -115,6 +117,10 @@ export default {
 .home {
   background-color: #42b983;
   color: #ffffff;
+}
+
+.content {
+  height: 100vh;
 }
 
 h1 {
