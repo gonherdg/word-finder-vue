@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="background">
     <div class="main">
       <div class="flex-parent">
         <div class="subtitle">About the app:</div>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import CommonFooter from '../components/CommonFooter.vue'
+import CommonFooter from "../components/CommonFooter.vue";
 
 export default {
   name: "About",
@@ -75,6 +75,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.background {
+  background-color: white;
+}
+
 .main {
   max-width: 60%;
   margin: auto;

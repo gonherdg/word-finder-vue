@@ -34,6 +34,10 @@ html {
   margin: 0px;
 }
 
+html {
+  background-color: #42b983;
+}
+
 #nav a {
   font-weight: bold;
   color: #222;
