@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-      <div class="content">
+    <div class="content" :class="{ 'content-no-data' : noData }">
       <h1>Fast Word Finder</h1>
       <strong class="instruccions"
         >Find words entering some of it's letters:</strong
@@ -37,24 +37,31 @@
         <button v-on:click="findWords()" class="search-btn">SEARCH</button>
       </div>
 
-      <div class="words-container" v-if="words !== {} && !justLoaded">
-        <ul>
-          <li class="word" v-for="(w, key) in words" v-bind:key="key">
-            <a
-              target="_blank"
-              style="color: white"
-              :href="'https://www.dictionary.com/browse/' + w.word"
-            >
-              {{ w.word }}
-            </a>
-          </li>
-        </ul>
-      </div>
-      <p style="color: #222; margin: 2rem" v-if="!words.length && !justLoaded">
-        No words were found.
-      </p>
-      <div class="some-space"></div>
     </div>
+
+    <loading
+      v-bind:active="isLoading"
+      :can-cancel="true"
+      :on-cancel="onCancel"
+      :is-full-page="true"
+    />
+    <div class="words-container" v-if="words !== {} && !justLoaded">
+      <ul>
+        <li class="word" v-for="(w, key) in words" v-bind:key="key">
+          <a
+            target="_blank"
+            style="color: white"
+            :href="'https://www.dictionary.com/browse/' + w.word"
+          >
+            {{ w.word }}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p style="color: #222; margin: 2rem" v-if="!words.length && !justLoaded">
+      No words were found.
+    </p>
+    <div class="some-space"></div>
 
     <CommonFooter />
   </div>
@@ -63,6 +70,7 @@
 <script>
 import axios from "axios";
 import CommonFooter from "../components/CommonFooter.vue";
+import loading from "vue-loading-overlay";
 
 export default {
   name: "Home",
@@ -71,6 +79,7 @@ export default {
   },
   components: {
     CommonFooter,
+    loading,
   },
   data() {
     return {
@@ -80,13 +89,19 @@ export default {
       length: 0,
       words: {},
       justLoaded: true,
+      isLoading: false,
     };
   },
-  computed: () => ({
-    "uppercase-letters": function () {
+  computed: {
+    "uppercase-letters": () => {
       this.letters.toUppercase();
     },
-  }),
+
+    noData: () => {
+      if (!this) return false;
+      return this.words !== {} && !this.justLoaded;
+    },
+  },
 
   mounted: function () {},
 
@@ -95,10 +110,13 @@ export default {
       this.justLoaded = false;
       console.log(this.starts, this.contains, this.ends, this.length);
       const searchWord = this.starts + "*" + this.contains + "*" + this.ends;
+
+      this.showLoadingSpin();
       axios
         .get(`https://api.datamuse.com/words?sp=${searchWord}`)
         .then((response) => (this.words = response.data))
         .then(() => {
+          this.onCancel();
           if (this.length)
             return (this.words = this.words.filter(
               (item) => item.word.length === this.length
@@ -108,6 +126,15 @@ export default {
           }
         });
     },
+
+    showLoadingSpin() {
+      this.isLoading = !this.isLoading;
+      console.log(this.isLoading);
+    },
+
+    onCancel() {
+      this.isLoading = false;
+    }
   },
 };
 </script>
@@ -119,8 +146,12 @@ export default {
   color: #ffffff;
 }
 
-.content {
+.content-no-data {
   height: 100vh;
+}
+
+.content {
+  height: 100%;
 }
 
 h1 {
