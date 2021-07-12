@@ -87,6 +87,7 @@ export default {
   padding: 2rem;
   background-color: #eee;
   text-align: justify;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .flex-parent {

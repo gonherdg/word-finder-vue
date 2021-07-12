@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="content" :class="{ 'content-no-data' : noData }">
+    <div class="content" :class="{ 'content-no-data': this.justLoaded }">
       <h1>Fast Word Finder</h1>
       <strong class="instruccions"
         >Find words entering some of it's letters:</strong
@@ -36,7 +36,6 @@
         </div>
         <button v-on:click="findWords()" class="search-btn">SEARCH</button>
       </div>
-
     </div>
 
     <loading
@@ -93,13 +92,13 @@ export default {
     };
   },
   computed: {
-    "uppercase-letters": () => {
-      this.letters.toUppercase();
+    "uppercase-letters": function () {
+      return  this.letters.toUppercase();
     },
 
-    noData: () => {
-      if (!this) return false;
-      return this.words !== {} && !this.justLoaded;
+    noData: function () {
+      if (this.justLoaded) return true;
+      return !this.words.length;
     },
   },
 
@@ -108,7 +107,7 @@ export default {
   methods: {
     findWords() {
       this.justLoaded = false;
-      console.log(this.starts, this.contains, this.ends, this.length);
+      // console.log(this.starts, this.contains, this.ends, this.length);
       const searchWord = this.starts + "*" + this.contains + "*" + this.ends;
 
       this.showLoadingSpin();
@@ -129,12 +128,12 @@ export default {
 
     showLoadingSpin() {
       this.isLoading = !this.isLoading;
-      console.log(this.isLoading);
+      // console.log(this.isLoading);
     },
 
     onCancel() {
       this.isLoading = false;
-    }
+    },
   },
 };
 </script>
@@ -144,14 +143,16 @@ export default {
 .home {
   background-color: #42b983;
   color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .content-no-data {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .content {
   height: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 h1 {

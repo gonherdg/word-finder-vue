@@ -33,6 +33,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .left-side {
