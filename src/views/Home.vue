@@ -93,7 +93,7 @@ export default {
   },
   computed: {
     "uppercase-letters": function () {
-      return  this.letters.toUppercase();
+      return this.letters.toUppercase();
     },
 
     noData: function () {
@@ -140,105 +140,107 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.home {
-  background-color: #42b983;
-  color: #ffffff;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+@media only screen and (min-width: 10px) {
+  .home {
+    background-color: #42b983;
+    color: #ffffff;
+    font-family: "Source Sans Pro", sans-serif;
+  }
 
-.content-no-data {
-  min-height: 100vh;
-}
+  .content-no-data {
+    min-height: 100vh;
+  }
 
-.content {
-  height: 100%;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+  .content {
+    height: 100%;
+    font-family: "Source Sans Pro", sans-serif;
+  }
 
-h1 {
-  font-size: 3rem;
-  margin-top: 0px;
-  padding: 1.5rem;
-}
+  h1 {
+    font-size: 3rem;
+    margin-top: 0px;
+    padding: 1.5rem;
+  }
 
-.instruccions {
-  font-size: 1.2rem;
-  margin: 2rem;
-}
+  .instruccions {
+    font-size: 1.2rem;
+    margin: 2rem;
+  }
 
-.finder-input {
-  font-size: 1.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 1rem;
-  min-width: 25rem;
-  border-radius: 25px;
-  border-style: none;
-  margin: 2rem;
-}
+  .finder-input {
+    font-size: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1rem;
+    min-width: 25rem;
+    border-radius: 25px;
+    border-style: none;
+    margin: 2rem;
+  }
 
-.field {
-  font-size: 1rem;
-  text-align: center;
-  padding: 0.5rem;
-  width: 15rem;
-  border-style: none;
-  border-radius: 25rem;
-  margin: 1rem;
-}
+  .field {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    width: 15rem;
+    border-style: none;
+    border-radius: 25rem;
+    margin: 1rem;
+  }
 
-.search-btn {
-  font-size: 1rem;
-  text-align: center;
-  padding: 0.5rem;
-  width: 34rem;
-  border-style: none;
-  border-radius: 25px;
-  margin: 1rem;
-  background-color: white;
-}
+  .search-btn {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    width: 34rem;
+    border-style: none;
+    border-radius: 25px;
+    margin: 1rem;
+    background-color: white;
+  }
 
-.inline {
-  display: inline;
-}
+  .inline {
+    display: inline;
+  }
 
-.block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.words-container {
-  margin: 1.5rem;
-  padding: 1.5rem;
-}
+  .words-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
 
-.word {
-  padding: 0.4rem;
-  background-color: #222;
-  border-radius: 10px;
-  color: white;
-  margin: 0.2rem;
-}
+  .word {
+    padding: 0.4rem;
+    background-color: #222;
+    border-radius: 10px;
+    color: white;
+    margin: 0.2rem;
+  }
 
-.some-space {
-  height: 2rem;
-  background-color: #42b983;
-}
+  .some-space {
+    height: 2rem;
+    background-color: #42b983;
+  }
 
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: black;
-  text-decoration: none;
+  h3 {
+    margin: 40px 0 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 </style>
