@@ -1,9 +1,22 @@
 <template>
-  <div class="background">
-    <div class="main">
-      <div class="flex-parent">
-        <div class="subtitle">About the app:</div>
-
+  <div class="bg-white">
+    <div
+      class="
+        w-full
+        sm:w-4/5
+        md:w-3/4
+        lg:w-2/3
+        text-sm
+        sm:text-base
+        mx-auto
+        mt-3
+        p-8
+        bg-gray-200
+        text-justify
+      "
+    >
+      <div class="flex flex-col pb-4">
+        <div class="p-1 italic text-lg text-gray-800">About the app:</div>
         <div>
           <p>
             This was made using Vue.js and CSS on the front-end. I'm also using
@@ -19,8 +32,8 @@
         </div>
       </div>
 
-      <div class="flex-parent">
-        <div class="subtitle">About me:</div>
+      <div class="flex flex-col pb-4">
+        <div class="p-1 italic text-lg text-gray-800">About me:</div>
 
         <div>
           <p>Hello! I'm Gonzalo Del Gaudio, the maker of this app.</p>
@@ -40,8 +53,8 @@
         </div>
       </div>
 
-      <div class="flex-parent">
-        <div class="subtitle">Contact me:</div>
+      <div class="flex flex-col pb-4">
+        <div class="p-1 italic text-lg text-gray-800">Contact me:</div>
 
         <div>
           <p>
@@ -50,7 +63,12 @@
           </p>
 
           <p>
-            Contact me at <a href="http://gonsoft.com.ar">www.gonsoft.com.ar</a>
+            Contact me at
+            <a
+              class="text-green-600 hover:text-green-500"
+              href="http://gonsoft.com.ar"
+              >www.gonsoft.com.ar</a
+            >
           </p>
         </div>
       </div>
@@ -74,53 +92,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.background {
-  background-color: white;
-}
-
-.main {
-  max-width: 60%;
-  margin: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 2rem;
-  background-color: #eee;
-  text-align: justify;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.flex-parent {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1rem;
-}
-
-.subtitle {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-style: italic;
-  font-size: large;
-  color: #222;
-  padding: 0.5rem;
-}
-
-p {
-  padding: 0rem;
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style scoped></style>
