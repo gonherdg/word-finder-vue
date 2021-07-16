@@ -20,8 +20,8 @@
         <div class="p-1 italic text-lg text-gray-800">About the app:</div>
         <div>
           <p>
-            This was made using Vue.js and CSS on the front-end. I'm also using
-            Datamuse API to obtain all the words that matches the input.
+            This was made using Vue.js and Tailwind on the front-end. I'm also using
+            Datamuse API to get all the words that matches the input.
           </p>
 
           <p>
