@@ -1,9 +1,9 @@
 <template>
   <div class="home flex flex-col">
     <div class="content h-full" :class="{ 'min-h-screen': this.justLoaded }">
-      <h1 class="text-5xl my-10 p-1">Fast Word Finder</h1>
+      <h1 class="text-3xl sm:text-5xl my-10 p-1 px-6">Fast Word Finder</h1>
       <div class="m-2">
-        <strong class="text-lg"
+        <strong class="text-lg px-6"
           >Find words entering some of it's letters:</strong
         >
       </div>
