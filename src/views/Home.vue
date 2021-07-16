@@ -67,8 +67,8 @@
       :on-cancel="onCancel"
       :is-full-page="true"
     />
-    <div class="mb-10 p-0" v-if="words !== {} && !justLoaded">
-      <ul>
+    <div class="mb-10 p-0 bg-transparent" v-if="words !== {} && !justLoaded">
+      <ul class="bg-transparent">
         <li
           class="m-1 py-1 px-2 bg-gray-800 rounded-lg text-white inline-block"
           v-for="(w, key) in words"
@@ -170,6 +170,11 @@ export default {
   .home {
     background-color: #42b983;
     font-family: "Source Sans Pro", sans-serif;
+    background-color: #79d9a7;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%238ed7b1' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23a2d7bc' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23b5d9c6' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23c5dcd0' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23d4e0da' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23e2e6e4' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: local;
+    background-size: auto;
+    background-color: #9feec5;
   }
 
   .content {

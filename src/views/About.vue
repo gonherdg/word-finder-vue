@@ -13,6 +13,7 @@
         p-8
         bg-gray-200
         text-justify
+        min-h-screen
       "
     >
       <div class="flex flex-col pb-4">
