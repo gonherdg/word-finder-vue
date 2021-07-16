@@ -1,8 +1,8 @@
 <template>
-  <footer>
+  <footer class="p-24 bg-gray-800 text-white">
     <div>
-      <div class="f-block">developer: Gonzalo Del Gaudio</div>
-      <div class="f-block">
+      <div class="m-0">developer: Gonzalo Del Gaudio</div>
+      <div class="m-0">
         <a style="color: white" href="http://gonsoft.com.ar"
           >www.gonsoft.com.ar</a
         >
@@ -16,14 +16,4 @@ export default {
 };
 </script>
 
-<style scoped>
-footer {
-  padding: 6rem;
-  background-color: #222;
-  color: #fff;
-}
-
-.f-block {
-  margin: 0rem;
-}
-</style>
+<style scoped></style>
